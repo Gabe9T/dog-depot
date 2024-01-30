@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DogDepot.Models.Species
+
+<h4>Add a new species</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  <br />
+  @Html.TextBoxFor(model => model.Title, new { placeholder = "Title" })
+  <br />
+  @Html.LabelFor(model => model.Description)
+  <br />
+  @Html.TextAreaFor(model => model.Description, new { placeholder = "Enter Your Description Here..." })
+  <br />
+  <input type="submit" value="Add new species" />
+}
+
+<p>@Html.ActionLink("Show all Animals", "Index")</p>

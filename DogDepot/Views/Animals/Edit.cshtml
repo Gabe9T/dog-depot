@@ -6,12 +6,15 @@
 
 <h2>Edit</h2>
 
-<h4>Edit this animal: @Html.DisplayFor(model => model.Details)</h4>
+<h4>Edit this animal: @Html.DisplayFor(model => model.Name)</h4>
 @using (Html.BeginForm())
 {
+
   @Html.HiddenFor(model => model.AnimalId)
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.Species)
+  @Html.DropDownList("SpeciesId")
 
   <input type="submit" value="Save" />
 }

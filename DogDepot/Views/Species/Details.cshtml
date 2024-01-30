@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DogDepot.Models.Species
+@using DogDepot.Models
+
+<h2>Species Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title) </h3>
+
+@if (@Model.Animals.Count == 0)
+{
+  <h3> No animals have been added to this species yet!</h3>
+}
+else
+{
+  <h3> Animals:</h3>
+  <ul>
+  @foreach (Animal animal in Model.Animals)
+    {
+      <li> @Html.ActionLink($"{animal.Name}", "Details", new { id = animal.AnimalId }) </li>
+    }
+  </ul>
+}
+
+<p> @Html.ActionLink("Edit Species", "Edit", new { id = Model.SpeciesId }) </p>
+<p> @Html.ActionLink("Delete Species", "Delete", new { id = Model.SpeciesId }) </p>
+<p> @Html.ActionLink("Back to list", "Index") </p>

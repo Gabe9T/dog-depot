@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DogDepot.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace DogDepot.Controllers
@@ -17,12 +18,15 @@ namespace DogDepot.Controllers
 
     public ActionResult Index()
     {
-      List<Animal> model = _db.Animals.Include(animal => animal.Species).ToList();
+      List<Animal> model = _db.Animals
+        .Include(animal => animal.Species)
+        .ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
+      ViewBag.SpeciesId = new SelectList(_db.Species, "SpeciesId", "Title");
       return View();
     }
 
@@ -42,8 +46,9 @@ namespace DogDepot.Controllers
 
     public ActionResult Edit(int id)
     {
-      Animal thisAnimal = _db.Animals.FirstOrDefault(AnimalsController =>
-          AnimalsController.AnimalId == id
+      ViewBag.SpeciesId = new SelectList(_db.Species, "SpeciesId", "Title");
+      Animal thisAnimal = _db.Animals.FirstOrDefault(animal =>
+          animal.AnimalId == id
       );
       return View(thisAnimal);
     }

@@ -11,6 +11,12 @@
   <br />
   @Html.TextBoxFor(model => model.Name, new { placeholder = "Name" })
   <br />
+  <p>@Html.ValidationMessageFor(model => model.SpeciesId, "", new { @class = "text-danger", @style = "font-weight: 600" })
+</p>
+  @Html.LabelFor(model => model.Species)
+  <br />
+  @Html.DropDownList("SpeciesId")
+  <br />
   @Html.LabelFor(model => model.Breed)
   <br />
   @Html.TextBoxFor(model => model.Breed, new { placeholder = "Breed" })

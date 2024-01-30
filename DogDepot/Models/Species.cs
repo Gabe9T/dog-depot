@@ -1,3 +1,5 @@
+
+
 namespace DogDepot.Models
 {
   public class Species
@@ -7,7 +9,6 @@ namespace DogDepot.Models
     public string Title { get; set; }
 
     public string Description { get; set; }
-
-    public List<Animal> animals { get; set; }
+    public List<Animal> Animals { get; set; }
   }
 }

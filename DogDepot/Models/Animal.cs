@@ -1,9 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DogDepot.Models
 {
   public class Animal
   {
     public int AnimalId { get; set; }
-
+    [Range(1, int.MaxValue, ErrorMessage = "Please select or create a category.")]
     public int SpeciesId { get; set; }
 
     public Species Species { get; set; }
