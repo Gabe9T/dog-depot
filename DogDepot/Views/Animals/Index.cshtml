@@ -3,6 +3,7 @@
 }
 
 @using DogDepot.Models;
+@model List<DogDepot.Models.Animal>;
 
 <h1>Animals</h1>
 
@@ -10,11 +11,18 @@
 {
   <h3>No amimals need a home at this time!</h3>
 }
+else
+{
 
-<ul>
+  <ul>
   @foreach (Animal animal in Model)
-  {
-    <li>@Html.ActionLink($"{@animal.Name} | {@animal.Age} | {@animal.Breed}", "Details", new { id = animal.AnimalId })
-    </li>
-  }
-</ul>
+    {
+      <li>@Html.ActionLink($"{@animal.Name} | {@animal.Age} | {@animal.Breed} - {@animal.Species.Title}", "Details", new
+          {
+            id = animal.AnimalId
+          })
+      </li>
+      <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    }
+  </ul>
+}

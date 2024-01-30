@@ -1,18 +1,51 @@
 html {
-  font-size: 14px;
+	font-size: 14px;
+}
+
+@font-face {
+	font-family: 'Saira Stencil One';
+	src: url('../fonts/SairaStencilOne/SairaStencilOne-Regular.ttf');
+}
+
+.logo {
+	font-size: 48px;
+	font-family: 'Saira Stencil One';
+	color: #dd0000;
+	border: 3px solid #dd0000;
+	transform: rotate(-5deg);
+	text-align: center;
+	margin: 10px;
+	padding: 2px 4px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
+}
+input {
+	background-color: whitesmoke;
+	border-radius: 3px;
+	border-color: transparent;
+}
+textarea {
+	background-color: whitesmoke;
+	border-radius: 3px;
+	border-color: transparent;
+}
+
+input:hover {
+	border-color: lightcoral;
+}
+textarea:hover {
+	border-color: lightcoral;
 }
